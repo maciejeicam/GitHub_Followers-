@@ -20,7 +20,7 @@ class SearchVC: UIViewController {
         view.backgroundColor = .systemBackground
         configureLogoImageView()
         configureTextField()
-        configureFollowersButton()
+        configureCallToActionButton()
         createDismissKeyboardTapGesture()
         }
     //gorny pasek nawigacji znika
@@ -74,7 +74,7 @@ class SearchVC: UIViewController {
         ])
     }
     
-    func configureFollowersButton() {
+    func configureCallToActionButton() {
         view.addSubview(gitFollowersButton)
         gitFollowersButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         
