@@ -9,8 +9,8 @@ import UIKit
 
 class SearchVC: UIViewController {
     
-    let logoImageView = UIImageView()
-    let usernameTextField = GFTextField()
+    let logoImageView      = UIImageView()
+    let usernameTextField  = GFTextField()
     let gitFollowersButton = GFButton(backgroundColor: .systemGreen, title: "Followers")
     
     var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty}
@@ -42,9 +42,9 @@ class SearchVC: UIViewController {
         }
         
         
-        let followersListVC = FollowersListVC()
+        let followersListVC      = FollowersListVC()
         followersListVC.username = usernameTextField.text
-        followersListVC.title = usernameTextField.text
+        followersListVC.title    = usernameTextField.text
         navigationController?.pushViewController(followersListVC, animated: true)
     }
     
