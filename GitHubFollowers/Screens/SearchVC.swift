@@ -8,13 +8,12 @@
 import UIKit
 
 class SearchVC: UIViewController {
-
+    
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let gitFollowersButton = GFButton(backgroundColor: .systemGreen, title: "Followers")
     
     var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty}
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +22,7 @@ class SearchVC: UIViewController {
         configureTextField()
         configureFollowersButton()
         createDismissKeyboardTapGesture()
-        
-    }
+        }
     //gorny pasek nawigacji znika
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,7 +40,7 @@ class SearchVC: UIViewController {
             presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 🤓", buttonTitle: "OK")
             return
         }
-  
+        
         
         let followersListVC = FollowersListVC()
         followersListVC.username = usernameTextField.text

@@ -8,7 +8,7 @@
 import UIKit
 
 class FollowersListVC: UIViewController {
-
+    
     var username: String!
     
     override func viewDidLoad() {
@@ -17,4 +17,6 @@ class FollowersListVC: UIViewController {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
 }
+
