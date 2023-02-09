@@ -4,7 +4,6 @@
 //
 //  Created by Maciej Michalik on 09/02/2023.
 //
-
 import UIKit
 
 @main
@@ -13,6 +12,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if#available(iOS 15, *){
+            let appearance = UITabBarAppearance()
+            let appearanceUp = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .opaqueSeparator
+            appearanceUp.configureWithOpaqueBackground()
+            appearanceUp.backgroundColor = .opaqueSeparator
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+            UINavigationBar.appearance().standardAppearance = appearanceUp
+            UINavigationBar.appearance().scrollEdgeAppearance = appearanceUp
+        }
         // Override point for customization after application launch.
         return true
     }
@@ -33,4 +44,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
