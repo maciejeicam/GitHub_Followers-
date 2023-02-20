@@ -14,6 +14,7 @@ class FollowersListVC: UIViewController {
     var username: String!
     var followers: [Follower] = []
     var page = 1
+    var hasMoreFollowers = true
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -45,12 +46,14 @@ class FollowersListVC: UIViewController {
     }
     
     func getFollowers(username: String, page: Int) {
-        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+        showLoadingView()
+        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else { return }       //transform self?. into self.
-            
+            self.dismissLoadingView()
             switch result {
             case.success(let followers):
-                self.followers = followers
+                if followers.count < 100 {self.hasMoreFollowers = false}
+                self.followers.append(contentsOf: followers)
                 self.updateData()
                 
             case.failure(let error):
@@ -75,7 +78,6 @@ class FollowersListVC: UIViewController {
     }
 }
 
-
 extension FollowersListVC: UICollectionViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -84,8 +86,10 @@ extension FollowersListVC: UICollectionViewDelegate {
         let height              = scrollView.frame.size.height
         
         if offsetY > contentHeight - height {
+            guard hasMoreFollowers else {return}
             page += 1
             getFollowers(username: username, page: page)
         }
     }
+    
 }
