@@ -22,7 +22,7 @@ class SearchVC: UIViewController {
         configureTextField()
         configureCallToActionButton()
         createDismissKeyboardTapGesture()
-        }
+    }
     //gorny pasek nawigacji znika
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,7 +40,6 @@ class SearchVC: UIViewController {
             presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 🤓", buttonTitle: "OK")
             return
         }
-        
         
         let followersListVC      = FollowersListVC()
         followersListVC.username = usernameTextField.text
@@ -85,7 +84,6 @@ class SearchVC: UIViewController {
             gitFollowersButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-    
 }
 //po wpisaniu tekstu przenosi do followers i pokazuje na gornym pasku co szukamy
 extension SearchVC: UITextFieldDelegate {
