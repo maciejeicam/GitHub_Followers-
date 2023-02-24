@@ -13,7 +13,7 @@ class GFItemInfoVC: UIViewController {
     let itemInfoViewOne = GFItemInfoView()
     let itemInfoViewTwo = GFItemInfoView()
     let actionButton    = GFButton()
-
+    
     var user: User!
     weak var delegate: UserInfoVCDelegate!
     
@@ -32,9 +32,8 @@ class GFItemInfoVC: UIViewController {
         configureActionButton()
         layoutUI()
         configureStackView()
-
     }
-
+    
     private func configureBackgroundView() {
         view.layer.cornerRadius = 18
         view.backgroundColor = .secondarySystemBackground
@@ -53,7 +52,6 @@ class GFItemInfoVC: UIViewController {
     }
     
     @objc func actionButtonTapped() {
-        
     }
     
     private func layoutUI() {
@@ -73,9 +71,7 @@ class GFItemInfoVC: UIViewController {
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             actionButton.heightAnchor.constraint(equalToConstant: 44)
-            
         ])
     }
-    
     
 }

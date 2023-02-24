@@ -12,6 +12,7 @@ enum ItemInfoType {
 }
 
 class GFItemInfoView: UIView {
+    
     let symbolImageView = UIImageView()
     let titleLabel      = GFTitleLabel(textAlignment: .left, fontSize: 14)
     let countLabel      = GFTitleLabel(textAlignment: .center, fontSize: 14)
@@ -19,7 +20,6 @@ class GFItemInfoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -68,7 +68,6 @@ class GFItemInfoView: UIView {
             symbolImageView.image       = UIImage(systemName: SFSymbols.following)
             titleLabel.text             = "Following"
         }
-        
         countLabel.text                 = String(count)
     }
     

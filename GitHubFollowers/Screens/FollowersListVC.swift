@@ -43,12 +43,10 @@ class FollowersListVC: UIViewController {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
-        
     }
-        
+    
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
@@ -63,7 +61,6 @@ class FollowersListVC: UIViewController {
         searchController.searchBar.delegate      = self
         searchController.searchBar.placeholder   = "Search for username"
         navigationItem.searchController          = searchController
-        
     }
     
     func getFollowers(username: String, page: Int) {
@@ -123,13 +120,11 @@ class FollowersListVC: UIViewController {
                     }
                     
                     self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "ok")
-                    
                 }
                 
             case .failure(let error) :
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "ok")
             }
-            
         }
     }
 }
@@ -173,7 +168,6 @@ extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
         isSearching = false
         updateData(on: followers)
     }
-    
 }
 
 extension FollowersListVC: FollowerListVCDelegate {
@@ -187,6 +181,5 @@ extension FollowersListVC: FollowerListVCDelegate {
         collectionView.setContentOffset(.zero, animated: true)
         getFollowers(username: username, page: page)
     }
-    
     
 }

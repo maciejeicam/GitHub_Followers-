@@ -106,7 +106,6 @@ class UserInfoVC: UIViewController {
     @objc func dismissVC() {
         dismiss(animated: true)
     }
-    
 }
 
 extension UserInfoVC: UserInfoVCDelegate {
@@ -115,7 +114,6 @@ extension UserInfoVC: UserInfoVCDelegate {
             presentGFAlertOnMainThread(title: "Invalid URL", message: "The Url attached to this user is invalid.", buttonTitle: "OK")
             return
         }
-        
         presentSafariVC(with: url)
     }
     
